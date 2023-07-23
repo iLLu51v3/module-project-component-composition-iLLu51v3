@@ -6,10 +6,8 @@ const api_key = 'DEMO_KEY'
 const URL = `https://api.nasa.gov/planetary/apod?api_key=${api_key}`
 
 
+export default function App() {
 
-
-
-function App() {
   const [apod, setApod] = useState()
   useEffect(() => {
     function fetchPhoto() {
@@ -47,4 +45,4 @@ function App() {
   )
 }
 
-export default App
+

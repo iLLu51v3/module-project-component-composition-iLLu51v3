@@ -7,8 +7,6 @@ body {
   font-family: 'Titillium Web', sans-serif;
   display: flex;
   flex-direction: column;
-  
-
 }
 
 #root {
@@ -39,4 +37,5 @@ header, footer {
 
 section{
   padding: 1rem;
+  
 }

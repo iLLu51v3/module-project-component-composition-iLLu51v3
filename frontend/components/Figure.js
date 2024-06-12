@@ -4,10 +4,13 @@ import styled from "styled-components"
 // After import of styled --> declare a component (a react component) of StyledFigure
 const StyledFigure = styled.figure`
   // put in some styles
-  max-width: 800px;
+  
+  /* justify-content: center; */
+  padding-inline: 20%;
 
   figcaption {
     font-style: italic;
+    text-align: center;
   }
 `
 

@@ -1,11 +1,28 @@
 import React from "react"
+import styled from "styled-components"
 
-export default function Figure({ imageURL, figureDate }) {
+// After import of styled --> declare a component (a react component) of StyledFigure
+const StyledFigure = styled.figure`
+  // put in some styles
+  max-width: 800px;
+
+  figcaption {
+    font-style: italic;
+  }
+`
+
+export default function Figure({ figureImage, figureDate, figureAuthor }) {
     return (
-        <figure>
-            <img src={imageURL}/>
-            <figcaption>Picture taken on {figureDate}</figcaption>
-        </figure>
+      /* prev.
+      <figure>
+        <img src={imageURL}/>
+        <figcaption>Picture taken on {figureDate}</figcaption>
+      </figure> */
+
+      <StyledFigure> {/* // prev. // Changed from <figure> after introducing StyledFigure*/}
+          <img src={figureImage}/>
+          <figcaption>Photo taken on {figureDate} by {figureAuthor}</figcaption>
+      </StyledFigure>
     )
 }
 

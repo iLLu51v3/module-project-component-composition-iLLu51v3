@@ -7,13 +7,14 @@ import Card from './Card'
 const api_key = 'DEMO_KEY'
 const URL = `https://api.nasa.gov/planetary/apod?api_key=${api_key}`
 
-/* function Figure({ imageURL, figureDate }) {
+/* // prev.
+function Figure({ imageURL, figureDate }) {
   <figure>
     <img src={imageURL}/>
     <figcaption>Picture taken on {figureDate}</figcaption>
   </figure>
-} */
-/* function Card({ title, PhotoText, imageURL, date }) {
+} 
+function Card({ title, PhotoText, imageURL, date }) {
   return(
     <div className='card'>
       <h2>{title}</h2>
@@ -53,30 +54,35 @@ export default function App() {
     * Next: Where to put the reponse request data
     * have the res.data become the setApod
     * check devTools console for the console.log(res)
-    */   
-    // fetchPhoto() 
+    */ 
+
+    /* fetchPhoto() // Commented out to reserve api_key use */
 
     setApod({ 
-      // hard code the api data response. Directly setting the res.data to the slice of state. This will come up even when fetchPhoto is not invoked/commented out
+      // Hard code the api data response. Directly setting the res.data to the slice of state. This will come up even when fetchPhoto is not invoked or is commented out
       "date": "2023-07-21",
       "explanation": "The combined light of stars along the Milky Way are reflected by these cosmic dust clouds that soar 300 light-years or so above the plane of our galaxy. Known to some as integrated flux nebulae and commonly found at high galactic latitudes, the dusty galactic cirrus clouds are faint. But they can be traced over large regions of the sky toward the North and South Galactic poles. Along with the reflection of starlight, studies indicate the dust clouds produce a faint reddish luminescence as inters...",
       "hdurl": "https://apod.nasa.gov/apod/image/2307/MandelWilson9_GabrielRodriguesSantos_APOD.jpg",
       "media_type": "image",
       "service_version": "v1",
-      "title": "Galactic Cirrus: Mandel Wilson 9",
-      "url": "https://apod.nasa.gov/apod/image/2307/MandelWilson9_GabrielRodriguesSantos_APOD1024.jpg"
+      /*"title": "Galactic Cirrus: Mandel Wilson", // prev. */      
+      "title": "Galactic Cirrus",
+      "url": "https://apod.nasa.gov/apod/image/2307/MandelWilson9_GabrielRodriguesSantos_APOD1024.jpg",
+      "copyright": "Mandel Wilson" // added
     })
   }, [])
 
-  if (!apod) 
-    return 'Fetching The Photo of the Day...'
+  if (!apod)
+    /* return 'Fetching The Photo of the Day...' // prev. */ 
+    return <span role="img" aria-label='Fetching The Photo of the Day...GO!'>🚀</span>
   return (
     <section>
-      <Card /*Card & Figure require the props to display */
+      <Card /*Card & Figure require the props to display // Figure not written here because Card will pass its (return) info to Figure */
       title={apod.title}
-      PhotoText={apod.explanation}
-      imageURL={apod.url}
-      figuereDate={apod.date}
+      photoText={apod.explanation}
+      figureImage={apod.url}
+      figureDate={apod.date}
+      figureAuthor={apod.copyright}
       />
     </section>
   )
@@ -92,10 +98,7 @@ export default function App() {
    * </div> */
 }
 
-/* <span role="img" aria-label='go!'>🚀</span>! */
-
-/**  
-* ## Task 5: Consuming the data
+/** ## Task 5: Consuming the data
 * [ ] Once you have made the call correctly, and logged the data, add the data to the state property you built.
 * [ ] Build out your other components. Compose your UI, and then pass the data to your children components via props so you can render it on the DOM.
 */
